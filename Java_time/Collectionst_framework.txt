@@ -1,0 +1,43 @@
+Data structure  | Data type  			| Characteristic
+	
+List 		  Primitive/User data type	  Does not check for unique entery / Order of entery is maintained
+
+ArrayList	  Primitive/User data type    	  Does not check for unique entery / Order of insertion -- Faster to retrive an information
+
+LinkedList 	  Primitive/User data type	  Does not check for unique entery / Order of insertion -- Faster to add an information
+
+
+
+Set		  Primitive/User data type	  Check if entery is unique / No order of entery 
+
+HashSet           Primitive/User data type	  Check if entery is unique / No order of entery
+
+LinkedHashSet     Primitive/User data type	  Check if entery is unique / Order of insertion
+
+
+
+
+Map		  Primitive/User data type 	  Data is stored in key-value pairs / every key being unique / No Order
+
+HashMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / No Order
+
+HashMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / Order of insertion
+
+TreeMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / Natural order
+
+
+
+
+
+list1.add(12);
+list1.contains(12);
+list1.isEmpty(12);
+list1.clear();
+list1.addAll(newList);
+list1.removeAll(newList);
+list1.retainAll();
+
+
+converting list and arrays 		List<Integer> li = new ArrayList<Integer>(list1);
+
+

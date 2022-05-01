@@ -1,0 +1,16 @@
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+
+
+Data types:
+
+int 
+long
+short
+byte
+double -- decimals
+
+boolean -- true or false
+char -- single leter
+
+
+String 

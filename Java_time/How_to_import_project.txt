@@ -1,0 +1,3 @@
+1. Be sure that the name of the project you have in a Eclipse is not the same as the project you are about to import
+
+2. Go to File>Import> Existing Projects into Workspace > Choose if it is a zip or directory and click finish

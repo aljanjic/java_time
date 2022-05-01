@@ -1,0 +1,4 @@
+jar -cvfm
+jar -xvf
+jar -tvf
+java -jar <program_name>
