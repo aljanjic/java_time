@@ -1,0 +1,51 @@
+-- Debugger (Lets say done, you will get back to this)
+
+-- Do all projects again 
+
+Lessions:
+	24 Search string (Do)
+	27 Car dealership
+	40 Stock market for Exception handling and Collections framework
+	43 Data Analytics for Generics
+	
+	
+	
+	 
+
+
+
+-- Repet Generics
+
+-- Do Generics project
+
+-- Learn how to import files
+
+-- Go through Multithreading
+
+-- After Multithreading lession, repet Multithreading and do CodingBat chalanges
+
+-- Continue with JDBC
+
+-- Lambda expressions
+
+
+
+
+-- Do final lessions for MultiThreading, JDBC, Lambda, Repeat generics
+
+-- Lambdas repeat (Filter cars by condition from a list of cars and then after that is created, use predicate), repeat Labmdas with out of the box Interfaces, repet data streams and try to combine
+
+-- Send notes from personal laptop, go through MySQL presentation power point
+
+
+
+
+
+
+
+
+
+
+After finishing Imtiaz course, go to W3 and repeat all
+
+-- Read w3School instructions (janjic_aljosa@hotmail.com codeItmyMan123.)

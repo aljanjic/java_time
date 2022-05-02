@@ -1,0 +1,859 @@
+Car myCar = new Car();     -- Instance variable, Object variable
+
+method signature || method body
+
+
+public static String helloThere(){
+
+}
+
+There a several modifiers that may be part of a method declaration:
+
+    Access modifiers: public , protected , and private.
+    Modifier restricting to one instance: static.
+    Modifier prohibiting value modification: final.
+    Modifier requiring override: abstract.
+    Modifier preventing reentrancy: synchronized
+
+
+public static String -- returns String
+public static int -- returns int
+public static void -- not returning anything / does stuff
+
+
+private -- access modifier -- method used localy (in the calass)
+public -- access modifier -- method used in different class or package 
+
+static -- it is only accessable through instance (accessable thorugh instance of the class)
+
+
+
+						Inheretence and Interface and Abstract Classes
+
+
+Child class extends to Parent class  "Child extends Parent" and have to be constructed the same way. Only 1 parent Class is allowed for Class but any number of Interfaces.
+
+Bird -- Sparrow -- Chicken
+
+Sparrow flyes, chicken does not. Solution is if Chicken extends Bird, fly method needs to be overriden. Better is to create and interface (Contract Flyable) and implements it to the Sparrow.   Sparrow extends Bird implements Flyable, Chicken extends Bird
+
+Abstract Class can only be extendet, you canot instantiate an instance of an abstract class it only can be a parent of other class
+
+If you create an Abstract method in a Class, you need to convert the class to be Abstract
+
+public abstract void move(); //No body in method  || public abstract class Animal{  Now every chinld of an Animal, needs to have move method in it
+
+										 }
+
+
+
+
+We can not instantiate an instance of Interface
+
+
+
+
+
+					Debugger
+
+Double click on the line where the debuger is going to start and then right click click on Debug as Java Application a start the tool. Move by clicking Step over and Step into
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Data structure  | Data type  			| Characteristic
+	
+List 		  Primitive/User data type	  Does not check for unique entery / Order of entery is maintained
+
+ArrayList	  Primitive/User data type    	  Does not check for unique entery / Order of insertion -- Faster to retrive an information
+
+LinkedList 	  Primitive/User data type	  Does not check for unique entery / Order of insertion -- Faster to add an information
+
+
+
+Set		  Primitive/User data type	  Check if entery is unique / No order of entery 
+
+HashSet           Primitive/User data type	  Check if entery is unique / No order of entery
+
+LinkedHashSet     Primitive/User data type	  Check if entery is unique / Order of insertion
+
+
+
+list1.add(12);
+list1.contains(12);
+list1.isEmpty(12);
+list1.clear();
+list1.addAll(newList);
+list1.removeAll(newList);
+list1.retainAll();
+
+
+
+
+
+
+Map		  Primitive/User data type 	  Data is stored in key-value pairs / every key being unique / No Order
+
+HashMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / No Order
+
+LinkedHashMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / Order of insertion
+
+TreeMap		  Primitive/User data type	  Data is stored in key-value pairs / every key being unique / Natural order
+
+
+//		TreeMap<String, String> dictionary = new TreeMap<String, String>();
+//		dictionary.put("Brave", "One who endures");
+//		dictionary.put("Brilliant", "The one who finds a solution");
+//		dictionary.put("Joy", "Simply, Sofija");
+//		dictionary.put("Confidence", "Just belive, it will be OK");
+
+
+
+//		for ( Map.Entry<String, String> entery  : dictionary.entrySet() ){
+//			
+//			System.out.println(entery.getKey());
+//			System.out.println(entery.getValue());
+//			
+//		}
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+Check if variable is equal to certan string, compare it with .equals
+converting list and arrays 		List<Integer> li = new ArrayList<Integer>(list1);
+
+
+Compare 2 variables: use .equals method but you need to generate Hash Code and Equals
+
+Convert a String to a double convert string to int	double result = Double.parseDouble(value);
+
+
+
+Variable types, data types (Java is type safety)
+
+
+
+
+
+								Generic Class: 
+
+	Create a Generic Class:
+
+public class Container <i1, i2> {
+	
+	
+	i1 var1;
+	i2 var2;
+
+	Constructor
+	Getters Setters
+
+
+}
+
+
+
+	Instantiate a generic Class:
+
+		Container<String, Integer> cnt = new Container<>("Msdasda", 23);
+
+
+
+
+
+
+
+								Generic Method: 
+
+
+	Create a Generic Method: 
+
+	public static <E> Set<E> union(Set<E> set1, Set<E> set2) {
+		
+		Set<E> result = new HashSet<>(set1);
+		
+		result.addAll(set2);
+		
+		return result;
+		
+		
+	}
+
+
+
+	Instanitiate a generich Method:
+
+
+		Set<String> resultSet = union(mySet1, mySet2);
+				
+		Iterator<String> itr = resultSet.iterator();
+		
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+
+
+
+
+Polymorphisam
+		public static void main(String[] args) {
+
+		Object myObject = new Object();
+		String myVar = "hello";
+		myObject = myVar;
+
+		Employee emp = new Employee();
+		Accountant acc = new Accountant();
+		emp = acc;
+
+		ArrayList<Employee> employees = new ArrayList<>();
+		employees.add(new Employee());
+		ArrayList<Accountant> accountants = new ArrayList<>();
+		accountants.add(new Accountant());
+//		employees = accountants; 
+
+		ArrayList<?> employees2 = new ArrayList<>();
+		ArrayList<Accountant> accountants2 = new ArrayList<>();
+		employees2 = accountants2;
+
+		// Employee is upper bound
+		ArrayList<? extends Employee> employees3 = new ArrayList<>();         // Accept data of type Employee and Children of
+		ArrayList<Accountant> accountants3 = new ArrayList<>();
+		employees3 = accountants3;
+
+		// Employee is lower bound
+		ArrayList<? super Employee> employees4 = new ArrayList<>();           // Accept data of type Employee or parent of
+		ArrayList<Object> accountants4 = new ArrayList<>();
+		employees4 = accountants4;
+
+		makeEmployeesWork(accountants);
+
+	}
+
+	public static void makeEmployeesWork(List<? extends Employee> employees) {
+		for (Employee emp : employees) {
+			emp.work();
+		}
+	}
+
+
+
+
+
+	
+									MultiTheading
+
+
+		Outside of main Class:
+
+
+class Task extends Thread {
+	
+	
+	public void run() {
+		
+		
+		for (int i = 0; i < 1000; i++) {
+			
+			System.out.println("Number: "+i);
+			
+		}
+		
+	}
+	
+	
+}
+
+
+
+	Initiate a thread Task in the main method:
+
+
+way1
+
+		Task taskRunner = new Task();
+		taskRunner.start();
+
+
+
+way2
+
+		System.out.println("Starting Thred 1");
+		Task taskRunner = new Task("Thread a");
+		taskRunner.start();
+		
+		
+		System.out.println("Starting Thred 2");
+		Task taskRunner2 = new Task("Thread b");
+		taskRunner2.start();
+
+
+
+
+
+way3               Only if  "class Task implements Runnable"
+
+		System.out.println("Starting Thred 1");
+		Task taskRunner = new Task("Thread a");
+		Thread t1 = new Thread(taskRunner);
+		t1.start();
+		
+		System.out.println("Starting Thred 2");
+		Task taskRunner2 = new Task("Thread b");
+		Thread t2 = new Thread(taskRunner2);
+		t2.start();
+
+
+
+
+
+way4            This is short version of above - Only if  "class Task implements Runnable"
+
+
+		System.out.println("Starting Thred 1");
+		Thread t1 = new Thread(new Task("Thread A"));
+		t1.start();
+		
+		System.out.println("Starting Thred 2");
+		Thread t2 = new Thread(new Task("Thread B"));
+		t2.start();
+
+
+
+
+
+way5		Anonymus class	
+
+
+System.out.println("Starting Thred 1");
+		Thread t1 = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				for (int i = 0; i < 1000; i++) {
+
+					System.out.println("Number: " + i + " - " + Thread.currentThread().getName());
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+
+			}
+		});
+
+
+Atomicity execute it toghether or do ne execute it at all
+
+
+
+
+synchronized method1:
+
+	public int getNext() {
+		synchronized(this) {
+			
+			value = value +1;
+			return value;
+			
+		}
+	
+	}
+
+synchronized method2:
+
+	public synchronized int getNext() {
+			
+			value = value +1;
+			return value;
+			
+	
+	
+	}
+
+
+
+
+		Thread Safte wiht Collections
+
+
+	way1 Not be best way:
+
+		inventoryTask.start();
+		inventoryTask.join();
+		displayTask.start();
+
+	way2 Best way:
+
+		List<Product> soldProductList = new CopyOnWriteArrayList<>();
+
+
+		inventoryTask.start();
+		Thread.sleep(200);
+		displayTask.start()
+
+
+
+
+
+
+
+Producer Consumer Pattern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thread Pool / Executor service
+
+
+		ExecutorService executor = Executors.newFixedThreadPool(2);		
+		
+		Runnable messageProccessor = new MessageProcessor(1);
+		executor.execute(messageProccessor);
+
+		Runnable messageProccessor2 = new MessageProcessor(2);
+		executor.execute(messageProccessor2);
+		
+		Runnable messageProccessor3 = new MessageProcessor(3);
+		executor.execute(messageProccessor3);
+
+
+		executor.shutdown();
+
+		while (!executor.isTerminated()) {
+			
+		}
+		
+		System.out.println("All done");
+
+
+		executor.awaitTermination(10, TimeUnit.SECONDS);
+
+
+
+
+
+
+
+Important to HAVE 
+
+			executor.shutdown(); // Rejects any new tasks from being submitted. Gracefully shuts down the service
+
+
+
+
+
+
+
+		Lambda expresion -- Blocks of code used to implemente a method defined by functional interface -- (basically the annonymous method but short and sexy version of it ) 
+		Lambdas are there so we can dissasociate a set of an instruction from an Object. In OOP everything is an Object. This creates non associated functions. Separation from behaviour. Can have a block 			of code that no longer need to be associated to other Object. These block of code can be apssed arround as an arguments to other methods and can be used as block of code anyweare.
+		It makes Java more  sysinced.
+
+
+ 
+
+
+
+JDBC 
+
+public static void main(String[] args) {
+
+		String url = "jdbc:mysql://127.0.0.1:3306/employees_database";
+		try {
+			
+			// Establish Connection Object 
+			Connection conn = DriverManager.getConnection(url, "root", "Bez.Pun.Frk321");
+			
+			// Create a statement object to send to the database
+			Statement statement = conn.createStatement();
+			
+			// Execute the statement object
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM employees_tbl");
+			
+			//Process the result
+			
+			int salaryTotal =0;
+			while(resultSet.next()) {
+//				System.out.println(resultSet.getString("name"));
+//				System.out.println(resultSet.getInt("salary"));
+//				salaryTotal = salaryTotal + resultSet.getInt("salary");
+				
+				salaryTotal = salaryTotal + Integer.parseInt(resultSet.getString("salary"));
+
+			}
+			
+			System.out.println(salaryTotal);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example of Lambda: 		walker( () -> System.out.println("Custom Object walking..."));
+
+Anonymus method: 		walker(new Walkable() {
+					@Override
+					public void walk() {
+						System.out.println("Custom Object walking...");
+					}
+				});
+
+Type of Lambda expresions MUST BE functional Interface and functional Interfece is an Interface with just one abstract method;
+
+
+		Walkable aLambdaBlock = () -> {
+			System.out.println("Have no fear");
+			System.out.println("the Max is here");
+
+
+		};
+		
+		
+		walker(aLambdaBlock);
+
+
+
+
+
+
+		// First
+		
+		DoSomething hello = () -> System.out.println("Hello there");
+		hello.doSomething();
+
+		TwoIntInterface sum2nums = (a, b) -> a + b;
+		System.out.println(sum2nums.returnInt(10, 20));
+
+		
+		
+		
+		// Second
+		TwoIntInterface divide2nums = (a, b) -> {
+			if (b != 0) {
+				return a / b;
+			}
+			System.out.println("Result bellow is 0 because you are trying to divide with 0");
+			return 0;
+		};
+
+		System.out.println(divide2nums.returnInt(0, 10));
+
+		
+		
+		// Third
+		OneArgumentInterface<String> reverse = (str) -> {
+			String result = "";
+			for (int i = str.length(); i > 0; i--) {
+				result = result + str.charAt(i - 1);
+			}
+			return result;
+		};
+
+		System.out.println(reverse.returnResult("Sofija"));
+
+		
+		// Forth
+		OneArgumentInterface<Integer> factorial = (a) -> {
+			int result = 1;
+
+			for (int i = 1; i <= a; i++) {
+
+				result = result * i;
+
+			}
+
+			return result;
+		};
+		
+		System.out.println(factorial.returnResult(5));
+
+
+
+
+
+
+
+
+
+
+
+Example of Generic Functional Interface
+
+	//	@FunctionalInterface
+	interface OneArgumentInterface<T> {
+
+		public T returnResult(T a);
+
+
+
+Lambda Interfaces
+
+	Predicate
+
+	Function 
+
+
+
+
+
+
+
+
+
+Lambda to filter: 
+
+----------------------------MAIN: 
+
+		List<Car> cars = Arrays.asList(
+				new Car("Lada", "Niva", "White", 14000),
+				new Car("Honda", "Accord", "Red", 22300),
+				new Car("Honda", "Civic", "Blue", 17700),
+				new Car("Toyota", "Land Cruiser", "White", 48500),
+				new Car("Toyota", "Corolla", "Black", 16200),
+				new Car("Toyota", "Camry", "Blue", 24000),
+				new Car("Nissan", "Sentra", "White", 17300),
+				new Car("Mitsubishi", "Lancer", "White", 20000),
+				new Car("Jeep", "Wrangler", "Red", 24500)
+				);
+
+
+
+		filterCars(cars, (car) -> car.getColor().equals("White") && car.getPrice() >= 18000);		
+
+
+-------------------------METHOD:
+
+	public static void filterCars (List<Car> cars, Condition<Car> condition) {
+		for (Car car : cars) {
+			if (condition.test(car)) {
+				System.out.println(car);
+			}
+		}
+	}
+
+
+Lambda Function interface example:
+
+		Function<Car, String> priceAndColor = (car) -> "Car price: " + car.getPrice() + " Car color: " + car.getColor();
+		String stringCar = priceAndColor.apply(cars.get(0));
+		System.out.println(stringCar);
+
+
+
+
+------- Combination of the 2 :
+
+
+	public static void filterCars (List<Car> cars, Condition<Car> condition) {
+		for (Car car : cars) {
+			if (condition.test(car)) {
+				System.out.println(car);
+				Function<Car, String> carString = (a) -> "Make: " +car.getMake() + " Model: " + car.getModel() + " Color: " + car.getColor() + " Price: " + car.getPrice();
+				String stringCar = carString.apply(car);
+				System.out.println(stringCar);
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+Strem
+
+Consists of Source  -> Intermediate Operations -> Terminal Operation
+
+
+
+
+	public static void main(String[] args) throws IOException {
+		
+//	Integer Stream from 1 to 10 (last is not inclusive)
+		IntStream
+		.range(1, 10)
+		.forEach((x) -> System.out.print(x));
+	System.out.println();
+	
+	
+//	Integer Stream 1 to 10, with skip 5
+	
+		IntStream
+		.range(1, 10)
+		.skip(5) // skip 5 elements of the stream
+		.forEach((x) -> System.out.print(x));
+	System.out.println();
+
+	
+//	Integer stream with a sum
+	
+		int sum = IntStream
+		.range(1, 5)
+		.sum();
+		System.out.println(sum);
+
+		
+//	Stream.of , sorted and findFirst
+		
+		Stream.of("Hello", "Bottle", "Africa")
+			.sorted()
+			.findFirst()
+			.ifPresent((x) -> System.out.print(x));
+		System.out.println();
+		
+		
+//	Stream from Array, sort, filter and print
+		
+		String[] items = {"car", "computer", "toothpaste", "box", "pencil", "tent", "door", "toy"};
+		
+		Stream.of(items)
+			.filter((x) -> x.startsWith("t"))
+			.sorted()
+			.forEach((x) -> System.out.print(x + ", "));
+		System.out.println();
+
+		
+		
+//	Average of squares of an int array
+		
+		Arrays.stream(new int[] {2, 4, 6, 8, 10})
+			.map((x) -> x * x)
+			.average()
+			.ifPresent((x) -> System.out.print(x));
+		System.out.println();
+
+		
+// Stream from a list, filter and print
+		
+		List<String> listOfItems = Arrays.asList("Computer", "Toothpaste", "Box", "Pencil", "Car", "Tent", "Door", "toy");
+		listOfItems.stream()
+			.map((x) -> x.toLowerCase())
+			.filter((x) -> x.startsWith("c"))
+			.sorted()
+			.forEach((x) -> System.out.print(x + ", "));
+		System.out.println();
+		
+		
+//	Stream from a file
+		String url = "/home/AljosaJanjic/Desktop/education_material/Java_time/App_wordFile.txt";
+		
+		Stream<String> lines = Files.lines(Paths.get(url));
+			lines.filter((x) -> x.length() > 6)
+			.sorted()
+			.forEach((x) -> System.out.print(x + ", "));
+		lines.close();
+		System.out.println();
+
+		
+
+// Stream from a file
+		
+		
+		
+		List<String> words = Files.lines(Paths.get(url))
+			.filter((x) -> x.contains("th"))
+			.collect(Collectors.toList());
+		words.forEach((x) -> System.out.print(x + ", "));
+		System.out.println();
+		
+		
+// Go through a rows fields 
+		
+		String url2 = "/home/AljosaJanjic/Desktop/education_material/Java_time/App_stockDataCsv.txt";
+		
+		Stream<String> rows = Files.lines(Paths.get(url2));
+		int rowCount = (int) rows
+			.map( (x) -> x.split(",") )
+			.filter( (x) -> x.length > 3 )
+			.count();
+		System.out.println(rowCount + " good rows...");
+		rows.close();
+		
+		
+// Go through a rows fields
+		
+		Stream<String> rows2 = Files.lines(Paths.get(url2));
+		rows2.map((x) -> x.split(","))
+			.filter((x) -> x.length > 3)
+			.filter((x) -> Integer.parseInt(x[1].trim()) > 15)
+			.forEach((x) -> System.out.println((x[0].trim() + " " + x[2].trim() + " " +x[3].trim())));
+		rows2.close();
+
+
+
+
+
